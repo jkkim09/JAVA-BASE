@@ -6,7 +6,13 @@ public class ThreadTestCallable_1 implements Callable<Integer>{
 	private int number = 10000;
 	
 	public void numberDown() {
-		this.number -= 900;
+		try {
+			this.number -= 900;
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public Integer call() {

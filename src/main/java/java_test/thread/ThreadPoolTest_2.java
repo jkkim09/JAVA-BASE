@@ -10,10 +10,11 @@ public class ThreadPoolTest_2 {
 		// Thread를 제한없이 생성, 삭제하는 쓰레드 풀를 생성한다.
 		ExecutorService service = Executors.newFixedThreadPool(10);
 		ThreadTestCallable_1 callable = new ThreadTestCallable_1();
-		for (int i=1; i<20; i++) {
+		for (int i=1; i<10; i++) {
 			Future<Integer> return_value = service.submit(callable);
 			try {
 				int get_number =  return_value.get();
+				
 				System.out.println("Callable Return Value : "+ get_number);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
@@ -23,5 +24,6 @@ public class ThreadPoolTest_2 {
 				e.printStackTrace();
 			}			
 		}
+		System.out.println(">>>>>>>>>>>>>>END");
 	}
 }

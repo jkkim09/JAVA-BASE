@@ -11,5 +11,6 @@ public class ThreadPoolTest_1 {
 		for (int i = 0 ; i<25; i++) {
 			service.execute(runable);
 		}
+		System.out.println(">>>>>>>>>>>END");
 	}
 }
