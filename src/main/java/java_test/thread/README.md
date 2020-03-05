@@ -6,27 +6,27 @@
 \- main() thread 이외에 다른 thread를 만들기위해 Thread 클래스를 상속하거나 Runnable 인터페이스를 구현 하여 Thread를 생성할 수 있다.
 
 
-|               Thread 생성자          |               설명           |
+|         Thread 생성자         |               설명           |
 |-------------------------------|-----------------------------|
 |  Thread()                     |                             |
 |  Thread(String s)             | 스레드 이름                  |
 |  Thread(Runnable r)           | 인터페이스 객체              |
-|  Thread(Runnable r, String s) | 인터페이스 객체와 스레드 이름 |
+|  Thread(Runnable r, String s) | 인터페이스 객체,  스레드 이름 |
 
 
-|  Thread 메소드                                                     |                                   설명                            |
+|                        Thread 메소드                        |                               설명                               |
 |------------------------------------------------------------|------------------------------------------------------------------|
-|                       String getName()                     |                       스레드의 이름을 s로 설정                      |
-|  void setName(String s)                                    |  스레드의 이름을 s로 설정                                           |
-|  void start()                                              |  스레드를 시작 run() 메소드 호출                                    |
-|  int getPriority()                                         |  스레드의 우선 순위를 반환                                          |
-|  void setpriority(int p)                                   |  스레드의 우선순위를 p값으로                                        |
-|  boolean isAlive()                                         |  스레드가 시작되었고 아직 끝나지 않았으면 true 끝났으면 false 반환  |
-|  void join() throws InterruptedException                   |  스레드가 끝날 때 까지 대기                                         |
+|                       String getName()                     |                       스레드의 이름을 s로 설정                     |
+|  void setName(String s)                                    |  스레드의 이름을 s로 설정                                          |
+|  void start()                                              |  스레드를 시작 run() 메소드 호출                                   |
+|  int getPriority()                                         |  스레드의 우선 순위를 반환                                         |
+|  void setpriority(int p)                                   |  스레드의 우선순위를 p값으로                                       |
+|  boolean isAlive()                                         |  스레드가 시작되었고 아직 끝나지 않았으면 true 끝났으면 false 반환   |
+|  void join() throws InterruptedException                   |  스레드가 끝날 때 까지 대기                                        |
 |  void run()                                                |  스레드가 실행할 부분 기술 (오버라이딩 사용)                        |
 |  void suspend()                                            |  스레드가 일시정지 resume()에 의해 다시시작 할 수 있다.             |
-|  void resume()                                             |  일시 정지된 스레드를 다시 시작.                                    |
-|  void yield()                                              |  다른 스레드에게 실행 상태를 양보하고 자신은 준비 상태로            |
+|  void resume()                                             |  일시 정지된 스레드를 다시 시작.                                   |
+|  void yield()                                              |  다른 스레드에게 실행 상태를 양보하고 자신은 준비 상태로             |
 
 ````java
 // Thread 상속
