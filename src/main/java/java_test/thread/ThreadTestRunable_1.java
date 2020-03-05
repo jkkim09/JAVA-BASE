@@ -13,7 +13,7 @@ public class ThreadTestRunable_1 implements Runnable{
 			int get_price = getPrice();
 			if (get_price >= 0 && get_price - set_down_price >= 0) {
 				this.price -= set_down_price;
-				Thread.sleep(1);			
+				Thread.sleep(200);			
 			}else {
 				return;
 			}
