@@ -1,8 +1,7 @@
-package java_test;
+package java_test.thread;
 
-public class ThreadTest {
+public class ThreadTest_1 {
 	public static void main(String[] args) {
-		System.out.println("test");
 		ThreadTestRunable runable = new ThreadTestRunable();
 		for (int i = 0 ; i<10; i++) {
 			Thread t = new Thread(runable, i+"-test-thread" );
