@@ -167,7 +167,8 @@ public class MainClass {
         // Executors.newScheduledThreadPool(int corePoolSize);
         // Executors.newWorkStealingPool(int parallelism);
         service.execute("Runnable 객체");
-        // service.submit("Callable 객체")
+        // Future<int> future = service.submit("Callable 객체")
+        // System.out.println(future.get());
         service.shutdown();
         // service.shutdownNow();
         // service.awaitTermination();
@@ -179,3 +180,16 @@ public class MainClass {
 src/main/java/java_test/thread/ThreadPoolTest_1.java -> Runnable<br>
 src/main/java/java_test/thread/ThreadPoolTest_2.java -> Callable<br>
 에서 Test Code로 확인 할 수있다.
+
+## Future 
+
+\- Future<T> future<br>
+비동기로 수행된 쓰레드의 결과를 담을 목록
+
+\- future.add(threadPool.submit(callable));<br>
+submit을 통해 call 메서드를 수행시키고 결과는 Future 목록에 담는다.
+
+\- future.get()<br>
+future 의 결과 값을 가져온다.
+
+
