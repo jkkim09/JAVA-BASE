@@ -1,33 +1,36 @@
 package java_test.thread;
 
-public class ThreadTestRunable implements Runnable{
-	private int downPrice = 1200;
-	int price = 10000;
+public class ThreadTestRunable_1 implements Runnable{
+	private int set_down_price = 1020;
+	int price = 20000;
 
-	public synchronized void downPrice(int down) {
+	public ThreadTestRunable_1(int set_down_price) {
+		this.set_down_price = set_down_price;
+	}
+	
+	public synchronized void downPrice() {
 		try {
 			int get_price = getPrice();
-			if (get_price > 0 && get_price - downPrice > 0) {
-				price -= down;
+			if (get_price >= 0 && get_price - set_down_price >= 0) {
+				this.price -= set_down_price;
 				Thread.sleep(1);			
 			}else {
 				return;
 			}
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
 	public int getPrice() {
-		return price;
+		return this.price;
 	}
 	
 	@Override
 	public void run() {
 		try {
 			System.out.println(Thread.currentThread().getName() + "----start");
-			downPrice(downPrice);
+			downPrice();
 			System.out.println(Thread.currentThread().getName() + "----down price : "+ getPrice());				
 		} catch (Exception e) {
 			// TODO: handle exception
