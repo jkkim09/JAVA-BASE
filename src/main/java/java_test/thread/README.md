@@ -183,7 +183,7 @@ src/main/java/java_test/thread/ThreadPoolTest_2.java -> Callable<br>
 
 ### Future 
 
-\- Future<T> future<br>
+\- Future\<T\> future<br>
 비동기로 수행된 쓰레드의 결과를 담을 목록
 
 \- future.add(threadPool.submit(callable));<br>
