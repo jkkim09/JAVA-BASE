@@ -185,10 +185,6 @@ src/main/java/java_test/thread/ThreadPoolTest_2.java -> "Callable"<br>
 
 Future 객체는 작업 결과가 아니라 작업이 완료될 때까지 기다렸다가 최종 결과를 얻는데 사용합니다. 그래서 Future는 지연 완료(pending Completion) 객체라고 합니다. Future의 get() 메소드를 호출하면 스레드가 작업을 완료할 때까지 블로킹되었다가 작업을 완료하면 처리 결과를 리턴합니다. 이것이 블로킹을 사용하는 작업 완료 통보 방식입니다. 
 
-출처: https://palpit.tistory.com/732 [palpit Vlog]
-
-출처: https://palpit.tistory.com/732 [palpit Vlog]
-
 \- Future\<T\> future<br>
 비동기로 수행된 쓰레드의 결과를 담을 목록
 
