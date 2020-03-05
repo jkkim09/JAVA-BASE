@@ -128,3 +128,129 @@ public class ThreadTestRunable_1 implements Runnable{
 
 위 코드는 Runnable 인커페이스의 run() 메소드를 구현한 class 를 Multi Thread를 이용하여 price 값을 Down 시키는 작업을 구현 하였다. 다수의 Thread가 "동일한 자원(int price)"를 Down 시킨다.<br><br>
 위에서 봐야할 내용중 downPrice() 메소드의 "synchronized" 가 있을 떄와 없을 떄를 비교하여 Test 해야한다. "synchronized"가 없을 때 다수의 Thread가 동일한 자원을 놓고 비동기로 경쟁하여 처리하기 때문에 if (get_price >= 0 && get_price - set_down_price >= 0) 조건문이 0 이하 일때는 동작하지 안아야할 때 비동기 이기때문에 특정 시점에 이미 0 보다 작언 값을 가져도 price 값을 down 시키는 현상이 발생 할 수 있다. 이러한 문제를 해결하기 위해 "synchronized"를 추가 하여 Thread를 동기화 해야한다.
+
+## 3. Thread Pool
+
+쓰레드 풀이란 쓰레드를, 허용된 갯수 안에서만 사용할수 있도록 스스로 제약하는 방식이다.  이것은 JVM의 옵션등으로 제어할 수는 없고, 어플리케이션이 선택적으로 사용하는 방법이다.
+
+#### 표 1.3
+|       쓰레드 종류        |                                   설명                                |
+|-------------------------|-----------------------------------------------------------------------|
+| newSingleThreadExecutor | 1개의 쓰레드를 사용하는 쓰레드 풀                                        |
+| newCachedThreadPool     | 갯수의 제한이 없는 쓰레드 풀                                             |
+| newFixedThreadPool      | 갯수를 지정하여 사용하는 쓰레드 풀                                       |
+| newScheduledThreadPool  | 특정 시간 등을 지정하여 사용할 수 있는 쓰레드 풀.                         |
+| newWorkStealingPool     | 1.8에 새로 나온 쓰레드 풀인데 완전한 parallel 형태로 사용되는 쓰레드 풀    |
+
+
+#### 표 1.4
+| 함수명  | 설명                                                                                                                    |
+|---------|-------------------------------------------------------------------------------------------------------------------------|
+| execute | 파라미터는 Runable 타입으로 리턴 값을 보낼 수 없다.                                                                     |
+| submit  | 파라미터는 Runable 타입과 Callable 타입 모두 오버로드되어 있기 때문에 리턴형식이 void, 제네릭 타입 어느쪽으로 가능하다. |
+
+
+#### 표 1.5
+| 함수명           | 설명                                                   |
+|------------------|--------------------------------------------------------|
+| shutdown         | 쓰레드 풀 안의 모든 쓰레드가 종료되면 쓰레드 풀을 종료 |
+| shutdownNow      | 쓰레드 풀 안의 모든 쓰레드를 강제 종료시키고 풀을 종료 |
+| awaitTermination | 시간 안에 종료되지 않으면 강제종료하고 쓰레드를 종료   |
+
+#### - Thread Pool 생성
+````java
+public class MainClass {
+	public static void main(String[] args) {
+		ExecutorService service = Executors.newFixedThreadPool(10);
+        // Executors.newSingleThreadExecutor();
+        // Executors.newCachedThreadPool();
+        // Executors.newScheduledThreadPool(int corePoolSize);
+        // Executors.newWorkStealingPool(int parallelism);
+        service.execute("Runnable 객체");
+        // Future<int> future = service.submit("Callable 객체")
+        // System.out.println(future.get());
+        service.shutdown();
+        // service.shutdownNow();
+        // service.awaitTermination();
+    }
+}
+````
+
+위 코드는 실제로 Runnable 과 Callable 구현 객체가 없기 때문에 동작하는 코드는 아니다 <br>
+src/main/java/java_test/thread/ThreadPoolTest_1.java -> "Runnable"<br>
+src/main/java/java_test/thread/ThreadPoolTest_2.java -> "Callable"<br>
+에서 Test Code로 확인 할 수있다.
+
+### Future 
+
+Future 객체는 작업 결과가 아니라 작업이 완료될 때까지 기다렸다가 최종 결과를 얻는데 사용합니다. 그래서 Future는 지연 완료(pending Completion) 객체라고 합니다. Future의 get() 메소드를 호출하면 스레드가 작업을 완료할 때까지 블로킹되었다가 작업을 완료하면 처리 결과를 리턴합니다. 이것이 블로킹을 사용하는 작업 완료 통보 방식입니다. 
+
+\- Future\<T\> future<br>
+비동기로 수행된 쓰레드의 결과를 담을 목록
+
+\- future.add(threadPool.submit(callable));<br>
+submit을 통해 call 메서드를 수행시키고 결과는 Future 목록에 담는다.
+
+\- future.get()<br>
+future 의 결과 값을 가져온다.
+
+
+### 결과 비교
+##### ThreadPoolTest_1.java 실행결과
+`````
+>>>>>>>>>>>END
+pool-1-thread-25----start
+pool-1-thread-1----down price : 19000
+pool-1-thread-25----down price : 18000
+pool-1-thread-24----down price : 17000
+pool-1-thread-23----down price : 16000
+pool-1-thread-22----down price : 15000
+pool-1-thread-21----down price : 14000
+pool-1-thread-20----down price : 13000
+pool-1-thread-19----down price : 12000
+pool-1-thread-18----down price : 11000
+pool-1-thread-17----down price : 10000
+pool-1-thread-16----down price : 9000
+pool-1-thread-15----down price : 8000
+pool-1-thread-14----down price : 7000
+pool-1-thread-13----down price : 6000
+pool-1-thread-6----down price : 5000
+pool-1-thread-12----down price : 4000
+pool-1-thread-7----down price : 3000
+pool-1-thread-11----down price : 2000
+pool-1-thread-10----down price : 1000
+pool-1-thread-9----down price : 0
+pool-1-thread-2----down price : 0
+pool-1-thread-8----down price : 0
+pool-1-thread-3----down price : 0
+pool-1-thread-4----down price : 0
+pool-1-thread-5----down price : 0
+`````
+##### ThreadPoolTest_2.java 실행결과
+`````
+Callable ----- pool-1-thread-1
+Callable Return Value : 9100
+Callable ----- pool-1-thread-2
+Callable Return Value : 8200
+Callable ----- pool-1-thread-3
+Callable Return Value : 7300
+Callable ----- pool-1-thread-4
+Callable Return Value : 6400
+Callable ----- pool-1-thread-5
+Callable Return Value : 5500
+Callable ----- pool-1-thread-6
+Callable Return Value : 4600
+Callable ----- pool-1-thread-7
+Callable Return Value : 3700
+Callable ----- pool-1-thread-8
+Callable Return Value : 2800
+Callable ----- pool-1-thread-9
+Callable Return Value : 1900
+>>>>>>>>>>>>>>END
+`````
+
+### ThreadPoolTest_1.java VS ThreadPoolTest_2.java
+
+위 결과 값을 보면 END 메세지가 출력된 타이밍이 다른것을 알 수 있다. 그리고 thread-X 의 발생 순서도 다른것을 확인 할 수 있다. 그래서 왜그런지 이유를 찾기위해 두 코드의 차이 점을 찾아보았다 <br>
+두코드의 차이는 Test_1은 Runnable 을 사용하였고 Test_2은 Callable 사용 하였다 그리고 가장큰 차이점은 Future 사용 하여 Callable 결과 값을 가져왔다는것이다. Future 의 get() 메소드를 호출하여 스레드가 작업을 완료할 때까지 블로킹되었기 때문에 위 결과 차이를 보이게 된 것이다. 그렇게 때문에 
+ThreadPoolTest_2.java 에서 Future 의 get()을 주석 처리하면 비슷한 결과를 얻을 수 있다.
