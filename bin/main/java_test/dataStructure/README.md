@@ -53,3 +53,33 @@ ex) 예를 들어 부호부에 1개의 비트, 정수부에 n개의 비트, 소�
 \- 32비트 단정밀도는 부호부에 1비트, 지수부에 8비트, 가수부에 23비트를 할당하는 표현 방식을 말하며, 반드시 구현하도록 권장된다.<br>
 
 ![](https://github.com/jkkim09/JAVA-TEST/blob/master/src/main/resources/image/img2.png?raw=true)
+
+
+#### 2진법으로 부동 소수로 소수를 정확하게 표현할 수 없어서 생기는 오류 
+0.3 => 0.01001100110011......(0011)의 무한 반복입니다. 을 2진수로 정확하게 표현 할 수없기때문에 발생하는 오류이다.
+`````java
+public class FloatingPoint {
+	public static void main(String[] args) {
+		// Double 
+		Double sum_1 = 0.0; 
+		for (int i=0 ; i<100; i++) {
+			sum_1 += 0.2;
+		}
+		System.out.println("Dobule 0.1 100번 더함, 0.1*100 : "+sum_1 + "  ,  "+ (0.1f*100));
+		
+		// Float
+		Float sum_2 = 0.0f;
+		for (int i=0 ; i<100; i++) {
+			sum_2 += 0.2f;
+		}
+		System.out.println("Float 0.1f 100번 더함, 0.1*100 : "+sum_2 + "  ,  "+ (0.1*100));
+	}
+}
+`````
+#### 실행결과
+`````cmd
+Dobule 0.1 100번 더함, 0.1*100 : 19.99999999999996  ,  10.0
+Float 0.1f 100번 더함, 0.1*100 : 20.000004  ,  10.0
+`````
+
+자료형의 가수 부분이 커지면 정확도는 실수를 표현하는 정확도는 올라가지만 그래도 정확하게 10을 표현 할수는 없다.
