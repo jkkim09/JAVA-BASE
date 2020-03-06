@@ -8,7 +8,7 @@ public class ThreadTestRunable_1 implements Runnable{
 		this.set_down_price = set_down_price;
 	}
 	
-	public synchronized void downPrice() {
+	synchronized void downPrice() {
 		try {
 			int get_price = getPrice();
 			if (get_price >= 0 && get_price - set_down_price >= 0) {
