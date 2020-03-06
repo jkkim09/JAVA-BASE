@@ -32,3 +32,24 @@
 | HashMap       | AbstractMap            | Map                        | No       | No               | No       |
 
 ![](https://github.com/jkkim09/JAVA-TEST/blob/master/src/main/resources/image/java_collection_3.jpg?raw=true)
+
+## 실수
+
+- 고정 소수점
+- 부동(뜰 부, 움직일 동)소수점
+
+
+### 고정 소수점
+\- 소수점이 고정된 형태이다. <br>
+\- 표현 가능한 실수의 범위와 정밀도가 제한적이기 때문에 실질적으로 잘 사용하지 않는다.<br>
+
+ex) 예를 들어 부호부에 1개의 비트, 정수부에 n개의 비트, 소수부에 m개의 비트를 할당한 수의 경우 2^(n+m+1),
+
+![](https://github.com/jkkim09/JAVA-TEST/blob/master/src/main/resources/image/img1.png?raw=true)
+
+
+### 부동 소수점
+\- 소수점이 이동 가능하다고 해서 붙여진 이름이다.<br>
+\- 32비트 단정밀도는 부호부에 1비트, 지수부에 8비트, 가수부에 23비트를 할당하는 표현 방식을 말하며, 반드시 구현하도록 권장된다.<br>
+
+![](https://github.com/jkkim09/JAVA-TEST/blob/master/src/main/resources/image/img2.png?raw=true)
