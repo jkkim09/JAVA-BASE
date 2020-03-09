@@ -162,22 +162,34 @@ remove : [T, E, S, T, T, E, S, T]
 
 ````
 
-위 결과를 하나씩 알아보면 일단 기본적으로 ArrayList\<T\> list = new ArrayList<T>(); 클래스를 이용하여 사용한다 T 는 해당 타입을 설정하고 설정한 타입으로만 add 할수 있다. add({index}, {value}) 형태로 값을 넣을 수 있으면 해당 index로 값을 넣면 그다음 index는 옆으로 밀리게 된다.
+위 결과를 하나씩 알아보면 일단 기본적으로 ArrayList\<T\> list = new ArrayList<T>(); 클래스를 이용하여 사용한다 T 는 해당 타입을 설정하고 설정한 타입으로만 add 할수 있다. add({index}, {value}) 형태로 값을 넣을 수 있으며 해당 index로 값을 넣으면 기존 index는 옆으로 밀리게 된다.
 <bt><br>
 
-````java
-	list_2.add(0, "T");
-	list_2.add(3, "T");
-	list_2.add(2, "S");
-	list_2.add(1, "E");
-````
+`````java
+list_2.add(0, "T");
+list_2.add(3, "T");
+list_2.add(2, "S");
+list_2.add(1, "E");
+`````
 
 add({index}, {value}) 로 사용한 예이다. 위방법으로하면 당연히 정상적으로 "될리가 없다" 처음 생각에 될줄 알았지만 2초간 고민해보니 어이가 없는코드였다 그이유는 해당 ArrayList는 일단 크기를 정하지 안기 때문에 0 다음 3번쨰 인덱스의 영역은 잡혀있지안으며 1,2 인덱스는 존재하지 안기때문에 오류가 발생한다. 오류가 궁굼하다면 위에 코드에서 주석을 제거하고 실행 시켜보면 될것같다.<br>
 
-````java
-	list_1.remove(7);
-	list_1.remove(8);
-	list_1.remove(9);
-````
+`````java
+list_1.remove(7);
+list_1.remove(8);
+list_1.remove(9);
+`````
  remove({index})를 사용하여 해당 index에 값을 지울수 있다 위코드를 사용하면 "index size가 9"인 ArrayList 값의 7 8 9 번째 값을 지울 수 "있을리가 없다" 그이유는 7 인덱스를 지우면 다음인덱스들이 그자릴를 채우고 한칸씩 당겨지기 때문에 8 인덱스까지는 지워질수 있지만 9인덱스는 없기때문에 오류가 발생한다.
 
+### Vector
+Vector클래스의 기능을 개선 한 것이 ArrayList클래스입니다. Vector 클래스는 기존에 작성된 소스와의 호환성을 위해서 계속 남겨 두고 있을
+뿐이기 때문에 가능하면 Vector클래스보다 ArrayList클래스를 사용하는 것이 바람직하다고 할 수 있습니다.
+
+### Stack
+
+후입선출(선출후입) = LIFO 나중에 들어온것이 먼저나가는 형식의 구조이다 
+
+`````java
+
+
+`````
