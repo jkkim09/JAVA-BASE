@@ -287,3 +287,76 @@ LinkedList
 	삭제 소요 시간 13.0241499초
 `````
 위 결과와 같이 LinkedList는 검색이 빈번하지 안고 추가삭제가 주로 사용하는 로직에서 용이하다.
+
+### ArrayDeque
+ArrayDeque는 내부 배열의 크기가 resizable할 수 있고 용량 제한이 없도록 구현되었다. 내부에서 필요에따라 배열을 확장시키는 구조이다. 이 ArrayDeque는 thread-safe하지 않기때문에 multi-thread 환경에서의 사용을 자제해야한다.
+
+ - Double-Ended Queue의 줄임말
+ 말그대로 큐의 양쪽 끝에서 삽입과 삭제가 모두 발생할 수 있는 큐
+ 어떻게 사용하느냐에 따라 큐와 스택이 모두 될 수 있음
+
+사실 하나하나 정리하면서 어디에서 쓸까라는 고민을 많이 해보았지만 "답은 나오지 안았다 어디에쓸까? 혹시 아시는분은 Email로 정보공유 부탁드립니다."
+
+
+### PriorityQueue(우선순위 큐)
+ 일반적인 큐와는 다르게 데이터를 꺼낼 때 우선순위가 가장 높은 데이터가 가장 먼저 나온다.
+
+`````java
+public class PriorityQueueTest implements Comparable<PriorityQueueTest>{
+	String name;
+    int age;
+
+    static PriorityQueue<PriorityQueueTest> getPriorityQueueOfStudents() {
+        PriorityQueue<PriorityQueueTest> priorityQueue = new PriorityQueue<>();
+
+        priorityQueue.offer(new PriorityQueueTest("김철수", 20));
+        priorityQueue.offer(new PriorityQueueTest("김영희", 100));
+        priorityQueue.offer(new PriorityQueueTest("한택희", 66));
+        priorityQueue.offer(new PriorityQueueTest("이나영", 7));
+        priorityQueue.offer(new PriorityQueueTest("이혁", 43));
+        priorityQueue.offer(new PriorityQueueTest("안영희", 100));
+
+        return priorityQueue;
+    }
+    
+    public PriorityQueueTest(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public int compareTo(PriorityQueueTest target) {
+        return this.age <= target.age ? 1 : - 1;
+    }
+
+    public String getName() {
+    	return this.name;
+    }
+    
+    @Override
+    public String toString() {
+        return "이름 : " + name + ", 나이 : " + age;
+    }
+    
+    public static void main(String[] args) {
+        PriorityQueue<PriorityQueueTest> priorityQueue = getPriorityQueueOfStudents();
+
+        // 나이가 많은 순으로 학생들 목록을 출력
+        while (!priorityQueue.isEmpty()) {
+        	System.out.println(priorityQueue.poll());     
+		//system.out.println(priorityQueue.poll().getName());
+        }
+    }
+}
+`````
+#### 결과값
+`````
+이름 : 김영희, 나이 : 100
+이름 : 안영희, 나이 : 100
+이름 : 한택희, 나이 : 66
+이름 : 이혁, 나이 : 43
+이름 : 김철수, 나이 : 20
+이름 : 이나영, 나이 : 7
+`````
+
+PriorityQueueTest Class에 Comparable interface의 compareTo함수를 구현하여 PriorityQueueTest Class 의 우선순위를 정의한다. 결과를 보면 기본 Queue 형식과 달리 입력 순서와 상관없이 제일먼저 입력된 값이 반환되는게 아니라 우선순위가 높은 값부터 반환되는것을 볼 수 있다.
