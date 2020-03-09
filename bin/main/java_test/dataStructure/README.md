@@ -233,7 +233,7 @@ LinkedList도 배열처럼 선형 자료구조입니다. 하지만 배열은 저
 |  ArrayList  	| LinkedList 보다 조회가 빠르다 | LinkedList 추가 및 삭제가 느리다 |
 |  LinkedList도  | ArrayList보다 추가 및 삭제가 빠르다 | ArrayList보다 조회가 느리다. |
 ````
-[{어전 index 정보},{데이타},{다음 index 정보}] - [{어전 index 정보},{데이타},{다음 index 정보}] - [{어전 index 정보},{데이타},{다음 index 정보}] .......
+[{이전 index 정보},{데이타},{다음 index 정보}] - [{이전 index 정보},{데이타},{다음 index 정보}] - [{이전 index 정보},{데이타},{다음 index 정보}] .......
 ````
 
 ![](https://github.com/jkkim09/JAVA-TEST/blob/master/src/main/resources/image/linkedlist.png?raw=true)

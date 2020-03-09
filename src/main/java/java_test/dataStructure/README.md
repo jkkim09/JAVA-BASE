@@ -228,15 +228,38 @@ int 1의 index위치 : 4
 ### LinkedList
 LinkedList도 배열처럼 선형 자료구조입니다. 하지만 배열은 저장소가 연속적인 메모리에 하나의 덩어리로 할당받지만 LinkedList는 노드 하나에 하나의 데이터를 보관하고 노드 내의 링크에 의해 순서 정보(다음 노드의 위치 정보, 이전 노드의 위치 정보)를 기억하는 자료구조입니다.<br>
 
+````
+[{이전 index 정보},{데이타},{다음 index 정보}] - [{이전 index 정보},{데이타},{다음 index 정보}] - [{이전 index 정보},{데이타},{다음 index 정보}] .......
+````
+
+![](https://github.com/jkkim09/JAVA-TEST/blob/master/src/main/resources/image/linkedlist.png?raw=true)
 |  		목록 	|  			장점 				| 				단점 				 |
 |---------------|-------------------------------|-----------------------------------|
 |  ArrayList  	| LinkedList 보다 조회가 빠르다 | LinkedList 추가 및 삭제가 느리다 |
 |  LinkedList도  | ArrayList보다 추가 및 삭제가 빠르다 | ArrayList보다 조회가 느리다. |
-````
-[{어전 index 정보},{데이타},{다음 index 정보}] - [{어전 index 정보},{데이타},{다음 index 정보}] - [{어전 index 정보},{데이타},{다음 index 정보}] .......
-````
 
-![](https://github.com/jkkim09/JAVA-TEST/blob/master/src/main/resources/image/linkedlist.png?raw=true)
+`````
+src -> main -> java -> java_text -> collection -> TestCode.java 코드의 결고이다.
+
+5000000개의 인스턴스 생성 시간 0.1017051초
+
+HashMap Test
+	입력 소요 시간 3.1252693초
+	탐색 소요 시간 0.0021148초
+	삭제 소요 시간 0.0023803초
+
+ArrayList
+	입력 소요 시간 0.1053953초
+	탐색 소요 시간 6.624E-4초
+	삭제 소요 시간 23.5385218초
+
+LinkedList
+	입력 소요 시간 0.0345653초
+	탐색 소요 시간 13.0546313초
+	삭제 소요 시간 13.0241499초
+`````
+위 결과와 같이 LinkedList는 검색이 빈번하지 안고 추가삭제가 주로 사용하는 로직에서 용의하다.
+
 
 | 형태     | 메소드                                       | 설명                                      |
 |----------|----------------------------------------------|-------------------------------------------|
