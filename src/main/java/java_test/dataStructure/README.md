@@ -228,8 +228,12 @@ int 1의 index위치 : 4
 ### LinkedList
 LinkedList도 배열처럼 선형 자료구조입니다. 하지만 배열은 저장소가 연속적인 메모리에 하나의 덩어리로 할당받지만 LinkedList는 노드 하나에 하나의 데이터를 보관하고 노드 내의 링크에 의해 순서 정보(다음 노드의 위치 정보, 이전 노드의 위치 정보)를 기억하는 자료구조입니다.<br>
 
+|  		목록 	|  			장점 				| 				단점 				 |
+|---------------|-------------------------------|-----------------------------------|
+|  ArrayList  	| LinkedList 보다 조회가 빠르다 | LinkedList 추가 및 삭제가 느리다 |
+|  LinkedList도  | ArrayList보다 추가 및 삭제가 빠르다 | ArrayList보다 조회가 느리다. |
 ````
 [{어전 index 정보},{데이타},{다음 index 정보}] - [{어전 index 정보},{데이타},{다음 index 정보}] - [{어전 index 정보},{데이타},{다음 index 정보}] .......
 ````
 
-![](https://github.com/jkkim09/JAVA-TEST/blob/master/src/main/resources/image/linkedlist.jpg?raw=true)
+![](https://github.com/jkkim09/JAVA-TEST/blob/master/src/main/resources/image/linkedlist.png?raw=true)
