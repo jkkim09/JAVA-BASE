@@ -190,6 +190,13 @@ Vector클래스의 기능을 개선 한 것이 ArrayList클래스입니다. Vect
 후입선출(선출후입) = LIFO 나중에 들어온것이 먼저나가는 형식의 구조이다 
 
 `````java
+Stack<Element> stack = new Stack<>();
+`````
 
-
+`````java
+public Element push(Element item); // 데이터 추가
+public Element pop(); // 최근에 추가된(Top) 데이터 삭제
+public Element peek(); // 최근에 추가된(Top) 데이터 조회
+public boolean empty(); // stack의 값이 비었는지 확인, 비었으면 true, 아니면 false
+public int seach(Object o); // 인자값으로 받은 데이터의 위치 반환, 그림으로 설명하겠음
 `````
