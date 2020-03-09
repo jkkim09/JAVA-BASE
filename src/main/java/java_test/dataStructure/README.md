@@ -77,6 +77,13 @@ public class FloatingPoint {
 			sum_2 += 0.2f;
 		}
 		System.out.println("Float 0.1f 100번 더함, 0.1*100 : "+sum_2 + "  ,  "+ (0.1*100));
+
+		Double sum_3 = 0.0;
+		for(int b=0; b<100; b++) {
+			BigDecimal value1 = new BigDecimal(sum_3.toString());
+			sum_3 = value1.add(new BigDecimal("0.1")).doubleValue();	
+		}
+		System.out.println("BigDecimal '0.1' 100더함 , 0.1*100 : "+sum_3 + "  ,  "+ (0.1*100));
 	}
 }
 `````
@@ -84,6 +91,13 @@ public class FloatingPoint {
 `````cmd
 Dobule 0.1 100번 더함, 0.1*100 : 19.99999999999996  ,  10.0
 Float 0.1f 100번 더함, 0.1*100 : 20.000004  ,  10.0
+BigDecimal '0.1' 100더함 , 0.1*100 : 10.0  ,  10.0
 `````
 
-자료형의 가수 부분이 커지면 정확도는 실수를 표현하는 정확도는 올라가지만 그래도 정확하게 10을 표현 할수는 없다.
+자료형의 가수 부분이 커지면 정확도는 실수를 표현하는 정확도는 올라가지만 그래도 정확하게 10을 표현 할수는 없다.<br><
+그러기 떄문에 위와같은 문제 때문에 정밀한 숫자계산을 필요한 영역에서는 BigDecimal을 사용한다.
+
+### BigDecimal (https://jsonobject.tistory.com/466 자료를 참고하였습니다.)
+- 소수점을 저장할 수 있는 가장 크기가 큰 타입인 double은 소수점의 정밀도에 있어 한계가 있어 값이 유실될 수 있다.
+- BigDecimal은 Java 언어에서 숫자를 정밀하게 저장하고 표현할 수 있는 유일한 방법이다.
+- BigDecimal의 유일한 단점은 느린 속도와 기본 타입보다 조금 불편한 사용법 뿐이다.
