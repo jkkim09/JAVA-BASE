@@ -237,3 +237,25 @@ LinkedList도 배열처럼 선형 자료구조입니다. 하지만 배열은 저
 ````
 
 ![](https://github.com/jkkim09/JAVA-TEST/blob/master/src/main/resources/image/linkedlist.png?raw=true)
+
+| 형태     | 메소드                                       | 설명                                      |
+|----------|----------------------------------------------|-------------------------------------------|
+| boolean  | add(E e)                                     | e를 리스트의 맨 끝에 추가                 |
+| void     | add(int index, E e)                          | index 위치에 e를 리스트에 추가            |
+| boolean  | addAll(Collection<? extends E> c)            | Collection인 c 전체를 리스트 맨 끝에 추가 |
+| boolean  | addAll(int index, Collection<? extends E> c) | index 위치에 c 전체를 리스트에 추가       |
+| void     | addFirst(E e)                                | 리스트의 시작부분에 e를 추가              |
+| void     | addLast(E e)                                 | 리스트의 끝부분에 e를 추가                |
+| void     | clear()                                      | 리스트의 내용을 전부 삭제                 |
+| boolean  | contains(Object o)                           | 리스트에 o가 있다면 true, 없으면 false    |
+| Iterator | descendingIterator()                         | 역방향으로 순환하는 iterator를 반환       |
+| E        | get(int index)                               | index 위치의 값을 반환                    |
+| E        | getFirst()                                   | 리스트의 첫 요소를 반환                   |
+| E        | getLast()                                    | 리스트의 마지막 요소를 반환               |
+| int      | indexOf(Object o)                            | o가 있는 인덱스를 반환, 없으면 -1 반환    |
+| E        | remove()                                     | 리스트의 첫 요소를 반환 후 제거           |
+| E        | remove(int index)                            | 리스트의 index 위치의 요소를 반환 후 제거 |
+| E        | removeFisrt()                                | 리스트의 첫 요소를 제거 후 반환           |
+| E        | removeLast()                                 | 리스트의 마지막 요소를 제거 후 반환       |
+| E        | set(int index, E element)                    | index 위치의 값을 element로 변경          |
+| int      | size()                                       | 현 리스트의 크기를 반환                   |
