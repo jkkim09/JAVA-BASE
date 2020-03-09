@@ -65,7 +65,7 @@ public class TestCode {
 		System.out.println("\t삭제 소요 시간 " + second(start, end) + "초");
 	}
 	
-	public void linkedListTest(){
+	public void linkedListTest() {
 		long start = System.nanoTime();
 		
 		List linkedList = new LinkedList();
