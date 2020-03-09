@@ -1,4 +1,4 @@
-package java_test.collection;
+package java_test.dataStructure.collection;
 
 import java.util.Stack;
 

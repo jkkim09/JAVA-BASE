@@ -200,3 +200,62 @@ public Element peek(); // 최근에 추가된(Top) 데이터 조회
 public boolean empty(); // stack의 값이 비었는지 확인, 비었으면 true, 아니면 false
 public int seach(Object o); // 인자값으로 받은 데이터의 위치 반환, 그림으로 설명하겠음
 `````
+
+`````java
+public class StackTest {
+	public static void main(String[] args) {
+		Stack<Integer> stack = new Stack<>();
+		stack.push(1);
+		stack.push(2);
+		stack.push(3);
+		stack.push(4);
+		stack.push(5);
+		System.out.println(stack);
+		System.out.println("int 1의 index위치 : " + stack.search(1));
+		stack.pop();
+		System.out.println("int 1의 index위치 : " + stack.search(1));
+	}
+}
+`````
+
+#### 실행결과
+`````
+[1, 2, 3, 4, 5]
+int 1의 index위치 : 5
+int 1의 index위치 : 4
+`````
+
+### LinkedList
+LinkedList도 배열처럼 선형 자료구조입니다. 하지만 배열은 저장소가 연속적인 메모리에 하나의 덩어리로 할당받지만 LinkedList는 노드 하나에 하나의 데이터를 보관하고 노드 내의 링크에 의해 순서 정보(다음 노드의 위치 정보, 이전 노드의 위치 정보)를 기억하는 자료구조입니다.<br>
+
+|  		목록 	|  			장점 				| 				단점 				 |
+|---------------|-------------------------------|-----------------------------------|
+|  ArrayList  	| LinkedList 보다 조회가 빠르다 | LinkedList 추가 및 삭제가 느리다 |
+|  LinkedList도  | ArrayList보다 추가 및 삭제가 빠르다 | ArrayList보다 조회가 느리다. |
+````
+[{어전 index 정보},{데이타},{다음 index 정보}] - [{어전 index 정보},{데이타},{다음 index 정보}] - [{어전 index 정보},{데이타},{다음 index 정보}] .......
+````
+
+![](https://github.com/jkkim09/JAVA-TEST/blob/master/src/main/resources/image/linkedlist.png?raw=true)
+
+| 형태     | 메소드                                       | 설명                                      |
+|----------|----------------------------------------------|-------------------------------------------|
+| boolean  | add(E e)                                     | e를 리스트의 맨 끝에 추가                 |
+| void     | add(int index, E e)                          | index 위치에 e를 리스트에 추가            |
+| boolean  | addAll(Collection<? extends E> c)            | Collection인 c 전체를 리스트 맨 끝에 추가 |
+| boolean  | addAll(int index, Collection<? extends E> c) | index 위치에 c 전체를 리스트에 추가       |
+| void     | addFirst(E e)                                | 리스트의 시작부분에 e를 추가              |
+| void     | addLast(E e)                                 | 리스트의 끝부분에 e를 추가                |
+| void     | clear()                                      | 리스트의 내용을 전부 삭제                 |
+| boolean  | contains(Object o)                           | 리스트에 o가 있다면 true, 없으면 false    |
+| Iterator | descendingIterator()                         | 역방향으로 순환하는 iterator를 반환       |
+| E        | get(int index)                               | index 위치의 값을 반환                    |
+| E        | getFirst()                                   | 리스트의 첫 요소를 반환                   |
+| E        | getLast()                                    | 리스트의 마지막 요소를 반환               |
+| int      | indexOf(Object o)                            | o가 있는 인덱스를 반환, 없으면 -1 반환    |
+| E        | remove()                                     | 리스트의 첫 요소를 반환 후 제거           |
+| E        | remove(int index)                            | 리스트의 index 위치의 요소를 반환 후 제거 |
+| E        | removeFisrt()                                | 리스트의 첫 요소를 제거 후 반환           |
+| E        | removeLast()                                 | 리스트의 마지막 요소를 제거 후 반환       |
+| E        | set(int index, E element)                    | index 위치의 값을 element로 변경          |
+| int      | size()                                       | 현 리스트의 크기를 반환                   |
