@@ -200,3 +200,36 @@ public Element peek(); // 최근에 추가된(Top) 데이터 조회
 public boolean empty(); // stack의 값이 비었는지 확인, 비었으면 true, 아니면 false
 public int seach(Object o); // 인자값으로 받은 데이터의 위치 반환, 그림으로 설명하겠음
 `````
+
+`````java
+public class StackTest {
+	public static void main(String[] args) {
+		Stack<Integer> stack = new Stack<>();
+		stack.push(1);
+		stack.push(2);
+		stack.push(3);
+		stack.push(4);
+		stack.push(5);
+		System.out.println(stack);
+		System.out.println("int 1의 index위치 : " + stack.search(1));
+		stack.pop();
+		System.out.println("int 1의 index위치 : " + stack.search(1));
+	}
+}
+`````
+
+#### 실행결과
+`````
+[1, 2, 3, 4, 5]
+int 1의 index위치 : 5
+int 1의 index위치 : 4
+`````
+
+### LinkedList
+LinkedList도 배열처럼 선형 자료구조입니다. 하지만 배열은 저장소가 연속적인 메모리에 하나의 덩어리로 할당받지만 LinkedList는 노드 하나에 하나의 데이터를 보관하고 노드 내의 링크에 의해 순서 정보(다음 노드의 위치 정보, 이전 노드의 위치 정보)를 기억하는 자료구조입니다.<br>
+
+````
+[{어전 index 정보},{데이타},{다음 index 정보}] - [{어전 index 정보},{데이타},{다음 index 정보}] - [{어전 index 정보},{데이타},{다음 index 정보}] .......
+````
+
+![](https://github.com/jkkim09/JAVA-TEST/blob/master/src/main/resources/image/linkedlist.jpg?raw=true)
