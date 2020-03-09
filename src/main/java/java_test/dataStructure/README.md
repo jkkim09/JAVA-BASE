@@ -80,6 +80,8 @@ BigDecimal '0.1' 100더함 , 0.1*100 : 10.0  ,  10.0
 - BigDecimal의 유일한 단점은 느린 속도와 기본 타입보다 조금 불편한 사용법 뿐이다.
 
 ## Collection
+ - 데이터의 집합, 그룹을 의미한다.
+ - JCF(Java Collections Framework)는 이러한 데이터, 자료구조인 컬렌션과 이를 구현하는 클래스를 정의하는 인터페이스를 제공한다.
 
 #### 표 1.2
 | Class or Interface | Superinterfaces | Notes                                                                                | 중복허용           | Null허용                               | 멤버접근                                                                 |
@@ -104,4 +106,78 @@ BigDecimal '0.1' 100더함 , 0.1*100 : 10.0  ,  10.0
 | TreeSet       | AbstractSet            | Set;NavigableSet;SortedSet | No       | Yes              | Yes      |
 | HashMap       | AbstractMap            | Map                        | No       | No               | No       |
 
+### ArrayList 
+기본 배열을 사용할때 해당 인덱스값이 다차여 더이상 값을 넣지 못하거나 인덱스를 다 못채워서 메모리가 낭비가 있을 수 있다 이러한 이유로  ArrayList 클래스를 사용한다.
+````java
+public class ListTest {
+	public static void main(String[] args) {
+//		boolean add(E e)
+		ArrayList<String> list_1 = new ArrayList<String>();
+		list_1.add("T");
+		list_1.add("E");
+		list_1.add("S");
+		list_1.add("T");
+		System.out.println("list_1 : " + list_1);
+		
+//		void add(int index, E element)
+		ArrayList<String> list_2 = new ArrayList<String>();
+//		list_2.add(0, "T");
+//		list_2.add(3, "T");
+//		list_2.add(2, "S");
+//		list_2.add(1, "E");
+		list_2.add("T");
+		list_2.add("T");
+		list_2.add("T");
+		list_2.add("T");
+		list_2.add(1, "E");
+		list_2.add(2, "S");
+		list_2.add(3, "T");
+		System.out.println("list_2 : " + list_2);
+		
+//		addAll
+		list_1.addAll(list_2);
+		System.out.println("addAll : ");
+		for (int i=0; i<list_1.size(); i++) {
+			System.out.print(list_1.subList(i, i+1));
+		}
+		System.out.println();
+//		remove
+//		list_1.remove(7);
+//		list_1.remove(8);
+//		list_1.remove(9);
+		list_1.remove(7);
+		list_1.remove(7);
+		list_1.remove(7);
+		System.out.println("remove : " + list_1);
+	}
+}
+````
+#### 실행결과
+````
+list_1 : [T, E, S, T]
+list_2 : [T, E, S, T, T, T, T]
+addAll : 
+[T][E][S][T][T][E][S][T][T][T][T]
+remove : [T, E, S, T, T, E, S, T]
+
+````
+
+위 결과를 하나씩 알아보면 일단 기본적으로 ArrayList\<T\> list = new ArrayList<T>(); 클래스를 이용하여 사용한다 T 는 해당 타입을 설정하고 설정한 타입으로만 add 할수 있다. add({index}, {value}) 형태로 값을 넣을 수 있으면 해당 index로 값을 넣면 그다음 index는 옆으로 밀리게 된다.
+<bt><br>
+
+````java
+	list_2.add(0, "T");
+	list_2.add(3, "T");
+	list_2.add(2, "S");
+	list_2.add(1, "E");
+````
+
+add({index}, {value}) 로 사용한 예이다. 위방법으로하면 당연히 정상적으로 "될리가 없다" 처음 생각에 될줄 알았지만 2초간 고민해보니 어이가 없는코드였다 그이유는 해당 ArrayList는 일단 크기를 정하지 안기 때문에 0 다음 3번쨰 인덱스의 영역은 잡혀있지안으며 1,2 인덱스는 존재하지 안기때문에 오류가 발생한다. 오류가 궁굼하다면 위에 코드에서 주석을 제거하고 실행 시켜보면 될것같다.<br>
+
+````java
+	list_1.remove(7);
+	list_1.remove(8);
+	list_1.remove(9);
+````
+ remove({index})를 사용하여 해당 index에 값을 지울수 있다 위코드를 사용하면 "index size가 9"인 ArrayList 값의 7 8 9 번째 값을 지울 수 "있을리가 없다" 그이유는 7 인덱스를 지우면 다음인덱스들이 그자릴를 채우고 한칸씩 당겨지기 때문에 8 인덱스까지는 지워질수 있지만 9인덱스는 없기때문에 오류가 발생한다.
 
