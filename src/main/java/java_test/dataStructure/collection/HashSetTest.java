@@ -91,6 +91,7 @@ public class HashSetTest {
 		System.out.println("<TreeSet>");
 		int[] int_list = {80, 95, 50, 35, 45, 65, 10, 100};
 		TreeSet<Integer> treeSet = new TreeSet<Integer>();
+		Set<Integer> st = treeSet;
 		for (int n : int_list) {
 			treeSet.add(n);
 		}

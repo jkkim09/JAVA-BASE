@@ -486,7 +486,7 @@ PriorityQueueTest Class에 Comparable interface의 compareTo함수를 구현하�
 ````
 
 
-#### 실행결과
+##### 실행결과
 ````
 <HashSet>
 ----------------------add()--------------------------
@@ -535,3 +535,86 @@ true
 - 같은 요소의 중복 저장을 허용하지 않습니다.
 - null 저장을 허용한다.
 - 데이터 정렬 때문에 HashSet보다 성능이 나쁘다.
+
+## Map(Interface)
+- Key:Value의 구조 Key, Value 값은 모두 객체이다.
+- Key는 중복 될수 없다 중복으로 값을 넣을경우 최신 값이 설정된다.
+
+※ 자바 공식 문서에서는 키와 값으로 구성되는 데이터를 매핑(mapping) 또는 엔트리(entry)라고 기술하고 있습니다.
+
+|메소드|설명|
+|---|----|
+|put({key}, {value})|매개변수로 주어진 키와 값을 추가하며, 저장되면 값을 반환한다.|
+|get({key})| 매개변수로 받은 키 의 값을 가져온다|
+|containsKey({Key})|매개변수로 주어진 키가 Map컬렉션에 존재하는지 여부를 확인한다.|
+|entrySet()|키와 값의 쌍으로 구성된 모든 Map, Entry 객체를 Set 컬렉션에 담아서 반환한다.|
+|isEmpty()|Map 컬렉션이 비어있는지 여부를 확인한다.|
+|keySet()|Map 컬렉션에 저장된 모든 키를 Set컬렉션에 담아서 봔환한다.|
+|values()|Map 컬렉션에 저장된 모든 값을 Collection에 담아서 봔환한다.|
+|clear()|Map 컬렉션에 저장된 모든 Map Entry객체를 삭제한다.|
+|remove({key})|매개변수로 받은 키와 일치하는 Map Entry를 삭제하고 값을 반환한다.|
+
+### HashMap
+- value에 null값도 사용 가능하다.
+- 멀티쓰레드에서 동시에 HashMap을 건드려 Key - value값을 사용하면 문제가 될 수 있다. 멀티쓰레드에서는 HashTable을 쓴다
+
+````java
+public class MapTest {
+	public static void main(String[] args) {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		System.out.println("--------------put()-----------------");
+		map.put("a", 1);
+		map.put("b", 2);
+		map.put("c", 3);
+		map.put("d", 4);
+		System.out.println(map);
+		System.out.println(map.get("c"));
+		System.out.println("--------------containsKey()--------------");
+		System.out.println(map.containsKey("c"));
+		System.out.println("--------------entrySet()-----------------");
+		Set set =  map.entrySet();
+		System.out.println(set);
+		Iterator<Object> it = set.iterator();
+		while(it.hasNext()) {
+			System.out.println(it.next());
+		}
+		System.out.println("--------------keySet()-------------------");
+		Set<String> ketSet = map.keySet();
+		System.out.println(ketSet);
+		System.out.println("--------------values()-------------------");
+		Collection<Integer> values = map.values();
+		System.out.println(values);
+		System.out.println("--------------remove({key}---------------");
+		System.out.println(map.remove("b"));
+		System.out.println(map.get("b"));
+		System.out.println("--------------clear()--------------------");
+		map.clear();
+		System.out.println(map);
+	}
+}
+````
+
+##### 실행결과
+
+````
+--------------put()-----------------
+{a=1, b=2, c=3, d=4}
+3
+--------------containsKey()-----------------
+true
+--------------entrySet()-----------------
+[a=1, b=2, c=3, d=4]
+a=1
+b=2
+c=3
+d=4
+--------------keySet()-----------------
+[a, b, c, d]
+--------------values()-----------------
+[1, 2, 3, 4]
+--------------remove({key}-----------------
+2
+null
+--------------clear()-----------------
+{}
+````
