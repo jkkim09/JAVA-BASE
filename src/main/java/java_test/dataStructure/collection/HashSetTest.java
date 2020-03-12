@@ -2,10 +2,12 @@ package java_test.dataStructure.collection;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class HashSetTest {
 	public static void main(String[] ages) {
+		System.out.println("<HashSet>");
 		Set<String> hashSet =new HashSet();
 		// add()
 		System.out.println("----------------------add()--------------------------");
@@ -76,5 +78,13 @@ public class HashSetTest {
 		System.out.println(hashSet.isEmpty());
 		hashSet.clear();
 		System.out.println(hashSet.isEmpty());
+		
+		System.out.println("<LinkedHashSet>");
+		Set<String> linke = new LinkedHashSet<String>();
+		linke.add("A");
+		linke.add("B");
+		linke.add("C");
+		linke.add("D");
+		System.out.println(linke);
 	}
 }

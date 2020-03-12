@@ -369,6 +369,9 @@ PriorityQueueTest Class에 Comparable interface의 compareTo함수를 구현하�
 
 ### HashSet
 [HashSetTest.java Source](https://github.com/jkkim09/JAVA-TEST/blob/master/src/main/java/java_test/dataStructure/collection/HashSetTest.java)
+
+- 내부적으로 HashMap을 사용하여 데이터를 저장
+
 ##### hash: 임의의 크기를 간진 데이터를 고정된 데이터의 크기로 변환 이라고하는데 나는 값 과 메핑되여있는 고유한 값(주소:hash)이라고 외우고 있다.
 
 |		메소드		|		설명		|
@@ -499,3 +502,9 @@ E
 false
 true
 ````
+
+### LinkedHashSet
+- 요소의 저장 순서를 보장한다.
+- 같은 요소의 중복 저장을 허용하지 않습니다.
+- null 저장을 허용한다.
+- 데이터 정렬 때문에 HashSet보다 성능이 나쁘다.
