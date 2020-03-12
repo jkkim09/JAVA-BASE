@@ -365,7 +365,58 @@ PriorityQueueTest Class에 Comparable interface의 compareTo함수를 구현하�
 
 - 요소의 저장 순서를 유지하지 않습니다.
 - 같은 요소의 중복 저장을 허용하지 않습니다.
+- null 저장을 허용한다.
 
 ### HashSet
+[HashSetTest.java Source](https://github.com/jkkim09/JAVA-TEST/blob/master/src/main/java/java_test/dataStructure/collection/HashSetTest.java)
+##### hash: 임의의 크기를 간진 데이터를 고정된 데이터의 크기로 변환 이라고하는데 나는 값 과 메핑되여있는 고유한 값(주소:hash)이라고 외우고 있다.
 
-##### hash: 임의의 크기를 간진 데이터를 고정된 데이터의 크기로 변환 이라고하는데 나는 값 과 메핑되여있는 고유한 값(주소)이라고 외우고 있다.
+|		메소드		|		설명		|
+|------------------|-------------------|
+|		add(Object o)      | 	인자를 저장하고, 객체를 저장할 때 객체가 Set에 저장되어있지 않았다면 True를 리턴합니다. 이미 저장되어있다면 False를 리턴합니다.				|
+|	remove(Object o) |	인자로 전달된 객체를 Set에서 삭제합니다. Set에 객체가 존재하여 삭제가 되었다면 True를 리턴합니다. Set에 파일이 존재하지 않았다면 False를 리턴합니다.|
+|	removeAll(Collection<?>) |	인자로 받은 Collection에 저장된 아이템들을 HashSet에서 삭제합니다. |
+| removeIf() | Set의 아이템 중에 이 조건에 충족하는 객체는 삭제됩니다. |
+| clear() | HashSet의 모든 아이템들을 삭제합니다. |
+| contains() | Set 안에 객체가 존재하는지 여부를 리턴해줍니다. |
+| iterator() |  Iterator 객체를 리턴해 줍니다. 이 객체로 Set의 모든 아이템을 순회할 수 있습니다. |
+| isEmpty() | Set에 저장된 아이템이 없으면 True를 리턴해 줍니다. |
+| size() | HashSet에 저장된 아이템 개수를 리턴합니다. |
+
+※ Iterator는 자바의 컬렉션 프레임웍에서 컬렉션에 저장되어 있는 요소들을 읽어오는 방법을 표준화 하였는데 그 중 하나가 Iterator이다
+
+#### 실행결과
+````
+----------------------add()--------------------------
+true
+false
+[A, B, C, D, E, F, G]
+-------------------------remove()-----------------------
+true
+false
+---------------------removeAll()--------------------------
+[]
+true
+[A, D]
+---------------------removeIf()---------------------------
+[D]
+----------------------clear()--------------------------
+[]
+------------------------contains()------------------------
+false
+true
+-----------------------iterator()-------------------------
+A
+B
+C
+D
+E
+A
+B
+C
+D
+E
+-----------------------isEmpty()-------------------------
+false
+true
+````

@@ -360,3 +360,12 @@ public class PriorityQueueTest implements Comparable<PriorityQueueTest>{
 `````
 
 PriorityQueueTest Class에 Comparable interface의 compareTo함수를 구현하여 PriorityQueueTest Class 의 우선순위를 정의한다. 결과를 보면 기본 Queue 형식과 달리 입력 순서와 상관없이 제일먼저 입력된 값이 반환되는게 아니라 우선순위가 높은 값부터 반환되는것을 볼 수 있다.
+
+### - Set 컬렉션 클래스
+
+- 요소의 저장 순서를 유지하지 않습니다.
+- 같은 요소의 중복 저장을 허용하지 않습니다.
+
+### HashSet
+
+##### hash: 임의의 크기를 간진 데이터를 고정된 데이터의 크기로 변환 이라고하는데 나는 값 과 메핑되여있는 고유한 값(주소)이라고 외우고 있다.
