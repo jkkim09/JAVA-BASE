@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class HashSetTest {
 	public static void main(String[] ages) {
@@ -17,15 +18,15 @@ public class HashSetTest {
 		hashSet.add("D");
 		hashSet.add("E");
 		hashSet.add("F");
-		System.out.println(hashSet.add("G")); // ³ÖÀ» °ªÀÌ set¿¡ ¾øÀ¸¸éTRUE
-		System.out.println(hashSet.add("D")); // ÀÌ¹Ì ÀúÀå µÇ¾îÀÖÀ¸¸é FALE ¾øÀ¸¸é TRUE
+		System.out.println(hashSet.add("G")); 
+		System.out.println(hashSet.add("D"));
 		System.out.println(hashSet);
 		
 		// remove()
 		System.out.println("-------------------------remove()-----------------------");
 		hashSet.remove("B");
-		System.out.println(hashSet.remove("C")); // »èÁ¦ µÇ¾úÀ¸¸é true
-		System.out.println(hashSet.remove("C")); // »èÁ¦ ÇÒ °ÍÀÌ ¾ø´Ù¸é false
+		System.out.println(hashSet.remove("C")); 
+		System.out.println(hashSet.remove("C"));
 		
 		// removeAll()
 		System.out.println("---------------------removeAll()--------------------------");
@@ -86,5 +87,16 @@ public class HashSetTest {
 		linke.add("C");
 		linke.add("D");
 		System.out.println(linke);
+		
+		System.out.println("<TreeSet>");
+		int[] int_list = {80, 95, 50, 35, 45, 65, 10, 100};
+		TreeSet<Integer> treeSet = new TreeSet<Integer>();
+		for (int n : int_list) {
+			treeSet.add(n);
+		}
+		
+		System.out.println("ê¸°ì¤€ê°’ë³´ë‹¤ ì‘ì€ê°’ : " + treeSet.headSet(50));
+		System.out.println("ê¸°ì¤€ê°’ë³´ë‹¤ í°ê°’: " + treeSet.tailSet(50));
+		System.out.println("ë‘ì‚¬ì´ ê°’: " + treeSet.subSet(35, 50));
 	}
 }

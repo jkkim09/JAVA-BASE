@@ -392,6 +392,7 @@ PriorityQueueTest Class에 Comparable interface의 compareTo함수를 구현하�
 
 ````java
 	public static void main(String[] ages) {
+		System.out.println("<HashSet>");
 		Set<String> hashSet =new HashSet();
 		// add()
 		System.out.println("----------------------add()--------------------------");
@@ -462,32 +463,51 @@ PriorityQueueTest Class에 Comparable interface의 compareTo함수를 구현하�
 		System.out.println(hashSet.isEmpty());
 		hashSet.clear();
 		System.out.println(hashSet.isEmpty());
+		
+		System.out.println("<LinkedHashSet>");
+		Set<String> linke = new LinkedHashSet<String>();
+		linke.add("A");
+		linke.add("B");
+		linke.add("C");
+		linke.add("D");
+		System.out.println(linke);
+		
+		System.out.println("<TreeSet>");
+		int[] int_list = {80, 95, 50, 35, 45, 65, 10, 100};
+		TreeSet<Integer> treeSet = new TreeSet<Integer>();
+		for (int n : int_list) {
+			treeSet.add(n);
+		}
+		
+		System.out.println("기준보다 작은값 : " + treeSet.headSet(50));
+		System.out.println("기준보다 큰값 : " + treeSet.tailSet(50));
+		System.out.println("두 값의 사이값 : " + treeSet.subSet(35, 50));
 	}
-
 ````
 
 
 #### 실행결과
 ````
----------------------add()--------------------------
+<HashSet>
+----------------------add()--------------------------
 true
 false
 [A, B, C, D, E, F, G]
----------------------remove()-----------------------
+-------------------------remove()-----------------------
 true
 false
----------------------removeAll()--------------------
+---------------------removeAll()--------------------------
 []
 true
 [A, D]
----------------------removeIf()---------------------
+---------------------removeIf()---------------------------
 [D]
----------------------clear()------------------------
+----------------------clear()--------------------------
 []
----------------------contains()---------------------
+------------------------contains()------------------------
 false
 true
----------------------iterator()---------------------
+-----------------------iterator()-------------------------
 A
 B
 C
@@ -498,9 +518,16 @@ B
 C
 D
 E
------------------------isEmpty()--------------------
+-----------------------isEmpty()-------------------------
 false
 true
+<LinkedHashSet>
+[A, B, C, D]
+<TreeSet>
+[I@816f27d
+기준보다 작은값 : [10, 35, 45]
+기준보다 큰값 : [50, 65, 80, 95, 100]
+두 값의 사이값 : [35, 45]
 ````
 
 ### LinkedHashSet
