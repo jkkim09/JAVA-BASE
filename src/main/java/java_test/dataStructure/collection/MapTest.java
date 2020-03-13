@@ -3,11 +3,13 @@ package java_test.dataStructure.collection;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
 public class MapTest {
 	public static void main(String[] args) {
+		System.out.println("<HashMap>");
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		System.out.println("--------------put()-----------------");
 		map.put("a", 1);
@@ -37,5 +39,12 @@ public class MapTest {
 		System.out.println("--------------clear()--------------------");
 		map.clear();
 		System.out.println(map);
+		System.out.println("<LinkedHashMap>");
+		LinkedHashMap<String, Integer> test2 = new LinkedHashMap<String, Integer>();
+		test2.put("A", 1);
+		test2.put("B", 2);
+		test2.put("C", 3);
+		test2.put("D", 4);
+		System.out.println(test2);
 	}
 }
