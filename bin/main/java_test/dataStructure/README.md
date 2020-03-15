@@ -561,6 +561,7 @@ true
 ````java
 public class MapTest {
 	public static void main(String[] args) {
+		System.out.println("<HashMap>");
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		System.out.println("--------------put()-----------------");
 		map.put("a", 1);
@@ -590,6 +591,13 @@ public class MapTest {
 		System.out.println("--------------clear()--------------------");
 		map.clear();
 		System.out.println(map);
+		System.out.println("<LinkedHashMap>");
+		LinkedHashMap<String, Integer> test2 = new LinkedHashMap<String, Integer>();
+		test2.put("A", 1);
+		test2.put("B", 2);
+		test2.put("C", 3);
+		test2.put("D", 4);
+		System.out.println(test2);
 	}
 }
 ````
@@ -597,10 +605,11 @@ public class MapTest {
 ##### 실행결과
 
 ````
+<HashMap>
 --------------put()-----------------
 {a=1, b=2, c=3, d=4}
 3
---------------containsKey()-----------------
+--------------containsKey()--------------
 true
 --------------entrySet()-----------------
 [a=1, b=2, c=3, d=4]
@@ -608,13 +617,29 @@ a=1
 b=2
 c=3
 d=4
---------------keySet()-----------------
+--------------keySet()-------------------
 [a, b, c, d]
---------------values()-----------------
+--------------values()-------------------
 [1, 2, 3, 4]
---------------remove({key}-----------------
+--------------remove({key}---------------
 2
 null
---------------clear()-----------------
+--------------clear()--------------------
 {}
+<LinkedHashMap>
+{A=1, B=2, C=3, D=4}
 ````
+
+
+### LinkedHashMap
+- 입력된 순서를 보장한다.
+- 나머지는 HashMap과 같다.
+
+### TreeMap
+- 키와 값을 한 쌍으로 하는 데이터를 이진 검색 트리(binary search tree)의 형태로 저장한다
+- 진 검색 트리는 데이터를 추가하거나 제거하는 등의 기본 동작 시간이 매우 빠르다.
+
+### Hashtable 
+- HashMap 클래스와 같은 동작을 하는 클래스이다. (JDK 1.0 에서 사용)
+- 호환성을 위해서만 남아있
+- Hashtable 클래스보다는 HashMap 클래스를 사용하는 것이 좋다.
