@@ -634,3 +634,12 @@ null
 ### LinkedHashMap
 - 입력된 순서를 보장한다.
 - 나머지는 HashMap과 같다.
+
+### TreeMap
+- 키와 값을 한 쌍으로 하는 데이터를 이진 검색 트리(binary search tree)의 형태로 저장한다
+- 진 검색 트리는 데이터를 추가하거나 제거하는 등의 기본 동작 시간이 매우 빠르다.
+
+### Hashtable 
+- HashMap 클래스와 같은 동작을 하는 클래스이다. (JDK 1.0 에서 사용)
+- 호환성을 위해서만 남아있
+- Hashtable 클래스보다는 HashMap 클래스를 사용하는 것이 좋다.
