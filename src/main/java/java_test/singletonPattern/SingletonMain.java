@@ -4,7 +4,7 @@ public class SingletonMain {
 	public static void main(String[] arg) {
 		TestSingleton ts1 = TestSingleton.getInstance();
 		TestSingleton ts2 = TestSingleton.getInstance();
-	
+		
 		// 0 0
 		System.out.println(ts1.getValue());
 		System.out.println(ts2.getValue());

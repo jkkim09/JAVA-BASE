@@ -1,7 +1,7 @@
 package java_test.singletonPattern;
 
 public class TestSingleton {
-	public static TestSingleton instance;
+	private static TestSingleton instance;
 	
 	private int value = 0;
 	
