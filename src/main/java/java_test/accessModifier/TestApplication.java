@@ -6,6 +6,6 @@ public class TestApplication {
 		TestClass tClass = new TestClass(100);
 		System.out.println(tClass.pValue);
 		System.out.println(tClass.proValue);
-		System.out.println(tClass.privateValue);
+//		System.out.println(tClass.privateValue);
 	}
 }

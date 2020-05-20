@@ -11,7 +11,7 @@ public class ProtectedTest extends TestClass {
 	public static void main(String[] args) {
 		TestClass tc = new TestClass(200);
 		System.out.println(tc.pValue);
-		System.out.println(tc.proValue);
+//		System.out.println(tc.proValue);
 		ProtectedTest pt = new ProtectedTest(300);
 		System.out.println(pt.proValue);
 	}
