@@ -22,6 +22,10 @@ public class Test {
 		System.out.println("6 : " + sc3.getInt());
 		System.out.println("7 : " + sc4.getInt());
 		
+		System.out.println(sc1.hashCode());
+		System.out.println(sc2.hashCode());
+		System.out.println(sc3.hashCode());
+		
 	}
 
 }

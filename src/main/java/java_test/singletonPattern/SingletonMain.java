@@ -18,5 +18,8 @@ public class SingletonMain {
 		ts1.setValue(2);
 		System.out.println(ts1.getValue());
 		System.out.println(ts2.getValue());
+		
+		System.out.println(ts1.hashCode());
+		System.out.println(ts2.hashCode());
 	}
 }
