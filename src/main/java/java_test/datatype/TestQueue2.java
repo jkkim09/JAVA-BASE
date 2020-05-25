@@ -57,7 +57,11 @@ public class TestQueue2 {
 		tq2.enQueue(22);
 		tq2.enQueue(33);
 		System.out.println(tq2.deQueue());
+		System.out.println(tq2.deQueue());
+		System.out.println(tq2.deQueue());
 		tq2.enQueue(44);
+		tq2.enQueue(55);
+		tq2.enQueue(66);
 		System.out.println(tq2.deQueue());
 		System.out.println(tq2.deQueue());
 		System.out.println(tq2.deQueue());
