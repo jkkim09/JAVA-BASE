@@ -21,5 +21,14 @@ public class SingletonMain {
 		
 		System.out.println(ts1.hashCode());
 		System.out.println(ts2.hashCode());
+		
+		Singoleton s1 = Singoleton.instance;
+		Singoleton s2 = Singoleton.instance;
+		
+		System.out.println(s1.getA());
+		s1.setA(500);
+		System.out.println(s1.getA());
+		System.out.println(s2.getA());
+	
 	}
 }
