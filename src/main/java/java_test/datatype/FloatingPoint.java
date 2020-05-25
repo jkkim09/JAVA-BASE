@@ -30,11 +30,11 @@ public class FloatingPoint {
 				c = Float.parseFloat(String.format("%.2f", (e >= 1) ? (e-1) : e));
 			}			
 			count++;
-			if (count == 50) break;  // 지정하지 안으면 무한 루프로 돌 수 있다.
+			if (count == 23) break;  // 지정하지 안으면 무한 루프로 돌 수 있다.
 		}
 		
-		System.out.println("지수 : " + sb.reverse().toString());
-		System.out.println("가수 : " + sb2.reverse().toString());
+		System.out.println("지수 2진수 : " + sb.reverse().toString());
+		System.out.println("가수 2진수 : " + sb2.reverse().toString());
 		
 		Stack<Integer> st = new Stack<Integer>();
 		st.push(1);

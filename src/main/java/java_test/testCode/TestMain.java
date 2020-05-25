@@ -1,8 +1,11 @@
 package java_test.testCode;
 
+import java.util.PriorityQueue;
+import java.util.Queue;
+
 public class TestMain {
 
-	public static void main(String[] args) {
+	public static <E> void main(String[] args) {
 		System.out.println(TestSystem.a);
 		System.out.println(TestSystem.b.hashCode());
 		int[] c = TestSystem.b;
@@ -12,7 +15,6 @@ public class TestMain {
 		}
 		TestSystem.systemInit();
 		TestSystem.testOut.testPrintln("testCode");
-		
 	}
 
 }
