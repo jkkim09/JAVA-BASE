@@ -2,6 +2,7 @@ package java_test.algorithm;
 
 public class TreeNode {
     char data;
+    String nodeName;
     TreeNode left;
     TreeNode right;
     
@@ -14,9 +15,18 @@ public class TreeNode {
         this.data = data;
         this.left = null;
         this.right = null;
+        setNodeName(data);
     }
     
     public Object getData(){
         return data;
+    }
+    
+    public void setNodeName (char data) {
+    	this.nodeName = data + " Node";
+    }
+    
+    public String getNodeName () {
+    	return this.nodeName;
     }
 }

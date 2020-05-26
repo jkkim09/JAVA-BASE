@@ -2,21 +2,29 @@ package java_test.algorithm;
 
 public class BinarySearchTree {
 	int count = 0;
-    private TreeNode root = new TreeNode();
+    private TreeNode root = null;
+    
+    public TreeNode getRootNode () {
+    	return root;
+    }
     
     public TreeNode insertKey(TreeNode root, char x) {
         TreeNode p = root;
         TreeNode newNode = new TreeNode(x);
         
         if(p==null){
+        	System.out.println("test == : " + x);
             return newNode;
         }else if(p.data>newNode.data){
+        	System.out.println("test << : " + p.getNodeName() + " : " + x);
             p.left = insertKey(p.left, x);
             return p;
         }else if(p.data<newNode.data){
+        	System.out.println("test >> : " + p.getNodeName() + " : " + x);
             p.right = insertKey(p.right, x);
             return p;
         }else{ 
+        	System.out.println("test3 : " + p.getNodeName() + " : " + x);
             return p;
         }
     }
@@ -28,9 +36,13 @@ public class BinarySearchTree {
     public TreeNode searchBST(char x){
         TreeNode p = root;
         while(p!=null){
-            if(x<p.data) p = p.left;
-            else if(x>p.data) p = p.right;
-            else return p;
+            if(x<p.data) {
+            	p = p.left;
+            } else if(x>p.data) {
+            	p = p.right;
+            } else {
+            	return p;
+            }
         }
         return p;
     }
@@ -50,35 +62,25 @@ public class BinarySearchTree {
     }
     
     public static void main(String[] args) {
-        BinarySearchTree bst = new BinarySearchTree();
-        
-        bst.insertBST('G');
-        bst.insertBST('I');
-        bst.insertBST('H');
+    	System.out.println("--------처리 동직----------");
+    	BinarySearchTree bst = new BinarySearchTree();
+    	bst.insertBST('A');
         bst.insertBST('D');
-        bst.insertBST('B');
-        bst.insertBST('M');
-        bst.insertBST('N');
-        bst.insertBST('A');
-        bst.insertBST('J');
-        bst.insertBST('E');
-        bst.insertBST('Q');
+	    bst.insertBST('B');
+	    bst.insertBST('C');
+	    bst.insertBST('F');
         
-        System.out.println("Binary Tree >>>");
+	    System.out.println("-------------------------");
         bst.printBST();
-        
-        TreeNode p1 = bst.searchBST('A');
+        System.out.println("--------Root Node--------");
+        System.out.println(bst.getRootNode().getNodeName());
+        System.out.println("-----------검색-----------");	
+        TreeNode p1 = bst.searchBST('F');
         if(p1!=null){
-            System.out.println(p1.data + " 탐색 성공");
+            System.out.println(p1.getNodeName() + " : " + p1.data + " 탐색 성공");
         }else{
             System.out.println("탐색 실패");
         }
-        
-        TreeNode p2 = bst.searchBST('D');
-        if(p2!=null){
-            System.out.println(p2.data + " 탐색 성공");
-        }else{
-            System.out.println("탐색 실패");
-        }
+
     }
 }
