@@ -1,11 +1,24 @@
 package java_test.annotation;
 
-@MyAnnotation
 public class AnnotationTest {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	@MyAnnotation
+	public void method1 (String test, int test2) {
+		System.out.println("test1");
+		System.out.println(test);
+		System.out.println(test2);
 	}
-
+	
+	@MyAnnotation("jk2")
+	public void method2 (String test, int test2) {
+		System.out.println("test2");
+		System.out.println(test);
+		System.out.println(test2);
+	}
+	
+	@MyAnnotation(value="jk3", number=33)
+	public void method3 (String test, int test2) {
+		System.out.println("test3");
+		System.out.println(test);
+		System.out.println(test2);
+	}
 }
