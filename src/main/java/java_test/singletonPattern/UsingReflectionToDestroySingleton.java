@@ -7,7 +7,6 @@ public class UsingReflectionToDestroySingleton {
 		MySingleton instance = MySingleton.getInstance();
 		MySingleton instance2 = null;
 		try {
-			// Reflection 동적 생성
 			Constructor[] constructors = MySingleton.class.getDeclaredConstructors();
 			for (Constructor constructor : constructors) {
 				constructor.setAccessible(true);
