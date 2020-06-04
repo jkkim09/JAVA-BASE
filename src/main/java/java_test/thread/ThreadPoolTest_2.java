@@ -7,7 +7,6 @@ import java.util.concurrent.Future;
 
 public class ThreadPoolTest_2 {
 	public static void main(String[] args) {
-		// Thread를 제한없이 생성, 삭제하는 쓰레드 풀를 생성한다.
 		ExecutorService service = Executors.newFixedThreadPool(10);
 		ThreadTestCallable_1 callable = new ThreadTestCallable_1();
 		for (int i=1; i<10; i++) {
