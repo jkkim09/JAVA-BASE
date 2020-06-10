@@ -2,12 +2,15 @@ package java_test.annotation;
 
 import java.lang.reflect.Method;
 
+@TypeAnnotation
 public class AnnotationExample {
 	public static void main(String[] args) {
+		AnnotationTest ae = new AnnotationTest();
+		TypeAnnotation ta = ae.getClass().getAnnotation(TypeAnnotation.class);
+		System.out.println(ta.type());
 		// Class 의 메소드를 얻어온다
 		// return Type은 Method[] 이다
 		Method[] methods = AnnotationTest.class.getDeclaredMethods();
-		
 		for (Method method : methods) {
 			// 각각 method에 MyAnnotation 어노테이션이 있는지 확인한다.
 			if (method.isAnnotationPresent(MyAnnotation.class)) {
