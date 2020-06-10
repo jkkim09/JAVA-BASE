@@ -1,6 +1,8 @@
 package java_test.annotation;
 
+@TypeAnnotation
 public class AnnotationTest {
+	@TypeAnnotation(type = "methodType")
 	@MyAnnotation
 	public void method1 (String test, int test2) {
 		System.out.println("test1");
