@@ -24,6 +24,7 @@ public class InsertionSort {
 	         aux--;
 	         System.out.println(Arrays.toString(arr));
 	      }
+	      System.out.println(aux);
 	      arr[aux + 1] = temp;
 	   }
 	   System.out.println("결과 : " + Arrays.toString(arr));
