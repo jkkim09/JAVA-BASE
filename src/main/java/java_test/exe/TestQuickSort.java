@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class TestQuickSort {
 	public static void sort(int[] arr, int left, int rigjt) {
-		int l, r, mV, h;	
 		if (left < rigjt) {
+			int l, r, mV, h;	
 			l = left;
 			r = rigjt;
 			mV = arr[(l+r)/2];
